@@ -32,10 +32,11 @@ gulp.task('inject', function () {
   var target = gulp.src('./index.html');
   var sources = gulp.src(['./js/**/*.js', './css/**/*.css'], { read: false });
 
-  return target.pipe(inject(sources))
-    .pipe(sort(function (a, b) {
+  return target.pipe(inject(sources.pipe(sort(function (a, b) {
+      console.log(a,b,a.path.localeCompare(b.path));
       return a.path.localeCompare(b.path);
-    }))
+    }))))
+
     .pipe(gulp.dest('./'));
 });
 
@@ -57,4 +58,10 @@ gulp.task('watch', function(){
   gulp.watch(['source/scss/**/*.scss','source/js/**/*.js'], gulp.series('sass','scripts', 'inject', 'reload'));
 });
 
-gulp.task('start', gulp.series('serve', 'watch'));
+gulp.task('watchhtml', function(){
+  gulp.watch(['index.html'], gulp.series('sass','scripts', 'reload'));
+});
+
+gulp.task('watchall', gulp.parallel('watch', 'watchhtml'));
+
+gulp.task('start', gulp.series('sass', 'scripts' , 'serve', 'watchall'));
