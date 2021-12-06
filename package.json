@@ -1,0 +1,27 @@
+{
+  "name": "cyprus",
+  "version": "1.0.0",
+  "description": "AppKit Drupal theme with simple tooling",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "gulp watch",
+    "start": "gulp start"
+  },
+  "author": "Vivek Agarwal (Drupalastic)",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "breakpoint-sass": "^2.7.1",
+    "browser-sync": "^2.27.7",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-inject": "^5.0.5",
+    "gulp-sass": "^5.0.0",
+    "gulp-sass-glob": "^1.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "node-sass-globbing": "0.0.23",
+    "sass": "^1.43.4",
+    "sort-stream": "^1.0.1"
+  }
+}
